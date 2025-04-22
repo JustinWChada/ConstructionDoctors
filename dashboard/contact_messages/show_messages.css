@@ -1,0 +1,71 @@
+.contact-message-title{
+    color: #ffc107;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.card {
+        margin-bottom: 20px;
+        border: 1px solid #ffecb3; /* Lighter variant for the border */
+    }
+
+    .card-header {
+      background-color: #ffc107;
+      color: #212529; /* Dark text for better contrast */
+      font-weight: bold;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #212529;
+    }
+
+    .card-text {
+        margin-bottom: 0.5rem;
+        color: #495057;
+    }
+
+    .icon-link {
+        margin-right: 10px;
+        color: #ffc107; /* Primary color for icons */
+    }
+
+    .icon-link:hover {
+        color: #ff9800; /* Slightly darker variant on hover */
+        text-decoration: none;
+    }
+
+    .mark-done-button {
+        color: red;
+    }
+
+    .mark-done-button:hover{
+      color: darkred;
+    }
+
+    .alert-info {
+      color: #856404;
+      background-color: #fff3cd;
+      border-color: #ffeeba;
+    }
+
+    .alert-info hr {
+      border-top-color: #ffe8a1;
+    }
+
+    .alert-info .alert-link {
+      color: #533f03;
+    }
+
+    .alert-danger {
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+    }
+    .alert-danger hr {
+      border-top-color: #f1b0b7;
+    }
+    .alert-danger .alert-link {
+      color: #491217;
+    }

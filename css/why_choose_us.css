@@ -1,0 +1,74 @@
+ .why-choose-us{
+    background-color: white /*rgba(255, 193, 7, 0.2);*/
+} 
+
+/*
+.why-choose-us::before {
+    opacity: 0;
+    transform: translateY(20px);/*Optional:slightupwardmovementtransition: 
+    opacity: 0.6s ease, transform 0.6s ease;
+    -webkit-transform: translateY(20px);
+    -moz-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    -o-transform: translateY(20px);
+}*/
+
+/* Class added by JavaScript when in view 
+.why-choose-us.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+*/
+
+.why-choose-us .section-title {
+    /*color: #ffc107;*/
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+  }
+  
+  .feature-box {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
+  
+  .feature-box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-box i {
+    font-size: 3rem;
+    color: #ffc107;
+    margin-bottom: 15px;
+  }
+  
+  .feature-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #343a40;
+    position: relative;
+  }
+
+  .feature-box h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust position as needed */
+    width: 0; /* Initially hidden */
+    height: 3px;
+    background-color: #ffc107; /* Gold accent color */
+    transition: width 0.5s ease;
+}
+
+.feature-box:hover h3::after {
+    width: 100%; /* Slides in on hover */
+}
+  
+  .feature-box p {
+    color: #6c757d;
+    line-height: 1.6;
+  }
+

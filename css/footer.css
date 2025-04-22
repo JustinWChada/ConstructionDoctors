@@ -1,0 +1,91 @@
+.site-footer {
+    background-color: #343a40; /* Dark background */
+    color: #fff;
+    padding: 50px 0;
+    font-size: 0.9rem;
+  }
+  
+  .site-footer .footer-heading {
+    color: #ffc107; /* Gold headings */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .site-footer p {
+    color: #ddd;
+    line-height: 1.6;
+  }
+  
+  .site-footer a {
+    color: #ddd;
+    text-decoration: none;
+  }
+  
+  .site-footer a:hover {
+    color: #fff;
+  }
+  
+  .site-footer .list-unstyled li {
+    margin-bottom: 8px;
+  }
+  
+  .site-footer .contact-list li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .site-footer .contact-list i {
+    margin-right: 10px;
+    color: #ffc107;
+  }
+  
+  .site-footer .social-links a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.2rem;
+  }
+  
+  .site-footer .subscribe-form .form-control {
+    border-radius: 5px;
+  }
+  
+  .site-footer .subscribe-form .btn-warning {
+    width: 100%;
+  }
+  
+  .site-footer .footer-bottom {
+    background-color: #222;
+    padding: 15px 0;
+    font-size: 0.8rem;
+  }
+
+.cta-section {
+    background-color: #ffc107; /*Gold background*/
+    color: #212529; /* Dark text */
+    padding: 40px 0;
+}
+
+.cta-section h3 {
+    font-size: 1.75rem;
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    margin-bottom: 20px;
+}
+
+.cta-section .input-group {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.cta-section .form-control {
+    border-radius: 5px;
+    border: none;
+    padding: 12px 15px;
+}
+
+.cta-section .btn-warning {
+    border-radius: 5px;
+    padding: 12px 25px;
+}

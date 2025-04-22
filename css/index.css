@@ -1,0 +1,10 @@
+nav, header, section,main{
+  margin: 0;
+}
+
+.index-main{
+  background-image: url("../img/img4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

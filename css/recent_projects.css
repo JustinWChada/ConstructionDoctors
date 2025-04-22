@@ -1,0 +1,89 @@
+.projects-carousel .carousel-item .row {
+    display: flex;
+    align-items: center;
+}
+
+.projects-carousel .carousel-item img {
+    height: 400px; /* Adjust as needed */
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+    width: 100%; /* Ensure the image fills its column */
+}
+
+/****************************/
+
+.recent-projects .section-title::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 100%; /*255, 193, 7, 0.6*/
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 193, 7, 0.6), rgba(255, 255, 255, 0));
+    animation: recentp_wave 5s linear infinite;
+    z-index: 0;
+    -webkit-animation: recentp_wave 5s linear infinite;
+    /* Place behind the content */
+}
+
+.recent-projects .section-title > * {
+  position: relative;
+  z-index: 1; /* Ensure content is above the animation */
+}
+
+@keyframes recentp_wave {
+  0% {
+      transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
+}
+  100% {
+      transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      -moz-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      -o-transform: translateX(100%);
+}
+}
+
+.recent-projects .section-title {
+    color: #ffc107;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Optional: Style the carousel controls */
+.projects-carousel .carousel-control-prev,
+.projects-carousel .carousel-control-next {
+    width: 5%; /* Adjust the width of the controls */
+}
+
+.projects-carousel .carousel-control-prev-icon,
+.projects-carousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Style the control icons */
+}
+
+.recent-project-title{
+    font-size: 2.0rem;
+    margin-bottom: 10px;
+    color: #343a40;
+    position: relative;
+}
+
+.recent-project-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Adjust position as needed */
+    width: 0; /* Initially hidden */
+    height: 3px;
+    background-color: #ffc107; /* Gold accent color */
+    transition: width 0.5s ease;
+}
+
+.recent-project-title::after {
+    width: 100%; /* Slides in on hover */
+}

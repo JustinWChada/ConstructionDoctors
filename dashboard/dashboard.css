@@ -1,0 +1,152 @@
+#dashboard {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+  cursor: none;
+}
+
+.nav-item:hover,
+.nav-link:hover {
+  color: #ffc107;
+}
+
+/*** Spinner ***/
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+  z-index: 10;
+  position: absolute;
+}
+
+#spinner.show {
+  transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+#spinner.hide {
+  /* transition: opacity .5s ease-out, visibility 0s linear 0s; */
+  visibility: hidden;
+  opacity: 0;
+}
+
+#sidebarMenu {
+  height: 100vh; /* Full viewport height */
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  z-index: 100; /* Behind backdrop, but above content */
+  padding: 48px 0 0; /* Top padding to account for navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  width: 250px; /* Or use Bootstrap column width */
+  /* Hide by default, show on medium+ */
+  display: none;
+}
+
+/* Styles for medium screens and larger */
+@media (min-width: 768px) {
+  /* Bootstrap 'md' breakpoint */
+  body {
+    padding-top: 0; /* Remove body padding */
+    padding-left: 250px; /* Add padding for the fixed sidebar width */
+  }
+
+  .navbar-top {
+    /* Optional: Hide the top navbar completely on larger screens */
+    /* display: none; */
+    /* Or make it part of the layout if needed */
+    position: sticky;
+    top: 0;
+    z-index: 1020; /* Ensure it's above sidebar if overlapping */
+    padding-left: 250px; /* Align content with main area */
+  }
+
+  #sidebar {
+    display: block; /* Show the sidebar */
+    top: 0; /* Align to top */
+    padding-top: 1rem; /* Adjust padding as needed */
+    height: 100vh; /* Ensure full height */
+    position: fixed; /* Keep it fixed */
+  }
+
+  /* Ensure collapse doesn't hide it on larger screens */
+  #sidebar.collapse {
+    display: block;
+  }
+
+  /* Hide the navbar toggler on larger screens */
+  .navbar-toggler {
+    display: none;
+  }
+
+  /* Adjust main content */
+  .main-content {
+    margin-left: 0; /* Reset margin if body padding handles offset */
+  }
+}
+
+/* Styling for the collapsed state (top bar on small screens) */
+@media (max-width: 767.98px) {
+  /* Below 'md' breakpoint */
+  .navbar-top {
+    position: fixed; /* Fix to top */
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  #sidebar {
+    /* When collapsed, it's part of the top navbar flow */
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    box-shadow: none;
+    /* Collapse handles display: none */
+  }
+  /* Add padding to main content to clear fixed top navbar */
+  .main-content {
+    padding-top: 56px; /* Match body padding-top */
+    margin-left: 0;
+  }
+  /* Style the collapsed menu items */
+  #sidebarMenu .nav-link {
+    padding: 0.5rem 1rem;
+  }
+  #sidebarMenu .nav-item.bg-danger {
+    margin-top: 1rem;
+  }
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .bi {
+  margin-right: 8px;
+}
+
+.sidebar .nav-link.active {
+  color: #0d6efd; /* Bootstrap primary color */
+}
+
+.sidebar .nav-link:hover {
+  color: #0a58ca;
+}
+
+.sidebar .nav-item.bg-danger .nav-link {
+  color: #fff !important; /* Ensure sign out text is white */
+}
+.sidebar .nav-item.bg-danger .nav-link:hover {
+  color: #eee !important;
+}
+/* Style submenus */
+.sidebar ul.collapse {
+  padding-left: 1.5rem; /* Indent submenus */
+}
+.sidebar ul.collapse .nav-link {
+  font-size: 0.9em;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}

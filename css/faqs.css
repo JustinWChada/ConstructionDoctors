@@ -1,0 +1,137 @@
+
+    /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+        color: #343a40;
+        overflow-x: hidden;
+    }
+
+    /* Hero Section Styles */
+    .hero-section {
+        background-image: url('../img/img2.jpg');
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-align: center;
+        padding: 150px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Dark overlay for better text readability */
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-section h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    /* FAQ Section Styles */
+    .faq-section {
+        padding: 80px 0;
+    }
+
+    .faq-section h2 {
+        font-size: 2.8rem;
+        font-weight: bold;
+        color: #ffc107;
+        margin-bottom: 5px;
+        text-align: center;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    .accordion-button {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #343a40;
+        background-color: #f0f0f0;
+        border: none;
+        box-shadow: none;
+    }
+
+    .accordion-button:not(.collapsed) {
+        color: #fff;
+        background-color: #ffc107;
+        box-shadow: none;
+    }
+
+    .accordion-button:focus {
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    .accordion-body {
+        font-size: 1.1rem;
+        color: #6c757d;
+        line-height: 1.6;
+    }
+
+    .accordion-item {
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+            -webkit-transform: translateY(-30px);
+            -moz-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            -o-transform: translateY(-30px);
+}
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+    

@@ -1,0 +1,37 @@
+.city-scroll-container {
+  overflow: hidden;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.city-scroll-list {
+  display: inline-block; /* Make the list take only necessary width */
+  padding: 0;
+  margin: 0;
+
+  /* Animation */
+  animation: scrollCities 400s linear infinite; /* Adjust duration as needed */
+}
+
+.city-scroll-list li {
+  display: inline-block; /* Display list items horizontally */
+  margin: 0 15px; /* Add spacing between cities */
+  font-size: 1.5rem; /* Adjust font size as needed */
+  font-weight: bold;
+}
+
+@keyframes scrollCities {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%); /* Move the list completely to the left */
+  }
+}
+
+/* Responsive adjustments (optional) */
+@media (max-width: 768px) {
+  .city-scroll-list li {
+    margin: 0 10px;
+    font-size: 1rem;
+  }
+}

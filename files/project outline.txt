@@ -1,0 +1,33 @@
+<?php
+include 'config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = htmlspecialchars(strip_tags(trim($_POST["name"])));
+  $email = htmlspecialchars(strip_tags(trim($_POST["email"])));
+  $phone = htmlspecialchars(strip_tags(trim($_POST["phone"])));
+  $message = htmlspecialchars(strip_tags(trim($_POST["message"])));
+
+  if (empty($name) || empty($email) || empty($message)) {
+    echo "Please fill in all required fields.";
+    exit;
+  }
+
+  $sql = "INSERT INTO contact_messages (name, email, phone, message) VALUES (?, ?, ?, ?)";
+  $stmt = $conn->prepare($sql); // Prepare the statement
+
+  if ($stmt) {
+    $stmt->bind_param("ssss", $name, $email, $phone, $message);  // Bind parameters
+    if ($stmt->execute()) {
+      // Success
+      echo "Thank you for your message!";
+    } else {
+      echo "Error: " . $stmt->error;
+    }
+    $stmt->close();
+  } else {
+    echo "Error preparing statement: " . $conn->error;
+  }
+
+  $conn->close();
+}
+?>

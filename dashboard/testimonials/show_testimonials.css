@@ -1,0 +1,197 @@
+h1 {
+    text-align: center;
+    color: #ffc107;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+#testimonials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the blocks horizontally */
+    gap: 20px; /* Spacing between blocks */
+}
+
+.testimonial-block {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px; /* Adjust the width as needed (makes it a square) */
+    width: 100%;
+    height: 350px; /*  Adjust the height as needed to maintain square-ish appearance */
+    text-align: left;
+    overflow: auto; /* Scroll if content overflows */
+    position: relative;  /* For positioning the buttons */
+}
+
+.testimonial-block img {
+    max-width: 100%; /* Make the image responsive */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.testimonial-block p {
+    margin-bottom: 10px;
+}
+
+.approve-button, .unapprove-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 10px; /* Position at the bottom of the block */
+    right: 10px; /* Position on the right side */
+}
+
+.unapprove-button {
+    background-color: #f44336; /* Red */
+}
+
+.approve-button:hover {
+    background-color: #367c39;
+}
+
+.unapprove-button:hover {
+    background-color: #bb2e24;
+}
+
+/* Style for the reply button */
+.reply-button {
+    background-color: #007bff; /* Blue */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 10px;
+    left: 10px; /* Position on the left side */
+}
+
+.reply-button:hover {
+    background-color: #0056b3;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*  Form Styling from Question*/
+.modal-content{
+    max-width: 550px;
+    width: 100%;
+}
+.modal-content form {
+    margin-bottom: 5px;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    color: #495057; /* Slightly darker label color */
+    font-weight: 600;
+    transition: color 0.2s ease; /* Label transition */
+}
+
+.modal-content label:hover {
+    color: #ffc107;
+}
+
+.modal-content input[type="text"],
+.modal-content textarea {
+    width: calc(100% - 20px); /* Adjusted width for padding */
+    padding: 8px;
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 6px;
+    margin-bottom: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+    font-size: 1rem;
+    background-color: #f7f7f7; /* Slightly lighter input background */
+    color: #495057;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content textarea:focus {
+    outline: none;
+    border-color: #ffc107; /* Focus color */
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.15); /* Focus shadow */
+}
+
+.modal-content textarea {
+    resize: vertical;
+    height: 120px; /* Increased default height */
+}
+
+.modal-content button[type="submit"] {
+    background-color: #ffc107;
+    color: #0c3057;
+    border: none;
+    margin-top: 12px;
+    padding: 12px 25px; /* Slightly adjusted padding */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem; /* Slightly larger font */
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease; /* Added box-shadow */
+    font-weight: 600; /* Semi-bold button text */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #ffb300; /* Slightly darker hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content button[type="submit"]:active {
+    background-color: #ffa000; /* Even darker active */
+    transform: translateY(0);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+}

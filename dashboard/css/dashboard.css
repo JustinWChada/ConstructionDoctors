@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+  overflow-x: hidden;
+}
+
+nav,
+header,
+section,
+main {
+  margin: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #343a40;
+  color: #fff;
+  padding-top: 20px;
+  min-height: 100vh;
+}
+
+.sidebar a {
+  color: #fff;
+  padding: 10px 20px;
+  display: block;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: #ffc107;
+  background-color: #495057;
+}
+
+.sidebar .active {
+  background-color: #ffc107;
+  color: #212529;
+  font-weight: bold;
+}
+
+.sidebar .bi {
+  margin-right: 10px;
+}
+
+/* Dashboard Content Styles */
+.dashboard-content {
+  padding: 30px;
+}
+
+.dashboard-header {
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: #ffc107;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  background-color: #f0f0f0;
+  border-bottom: none;
+  padding: 20px;
+  border-radius: 15px 15px 0 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #343a40;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Placeholder Styles */
+.placeholder-data {
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

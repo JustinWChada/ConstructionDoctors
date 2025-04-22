@@ -1,0 +1,11 @@
+.main-section{
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa; /* Light background */
+    color: #343a40; /* Darker text for better contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}

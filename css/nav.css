@@ -1,0 +1,47 @@
+/* Navigation Styles */
+.navbar {
+    background-color: #111 !important;
+    /* Darker Black */
+    padding: 15px 0;
+    /* Add some padding for better spacing */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #ffc107 !important;
+    /* Gold Brand Color */
+    font-size: 1.5rem;
+    /* Adjust size as needed */
+}
+
+.navbar-brand:hover {
+    color: #fff !important;
+    /* Lighter on hover */
+}
+
+.navbar-toggler {
+    border-color: #ffc107;
+    /* Gold Toggler Border */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 193, 7, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    /* White Link Color */
+    margin-left: 15px;
+    /* Spacing between links */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffc107 !important;
+    /* Gold Hover/Active Color */
+}
+
+/* Optional: Add a subtle box shadow to the navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

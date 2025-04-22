@@ -1,0 +1,20 @@
+.quote-section-title{
+    color:#ffc107;
+    text-align: center;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table th,
+.table td {
+    white-space: nowrap;
+}
+
+.delete-button {
+    color: red;
+}

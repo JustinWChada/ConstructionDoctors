@@ -1,0 +1,13 @@
+.top-header {
+    font-size: 0.9rem;
+    border-bottom: 1px solid #eee; /* Optional: Adds a subtle border */
+}
+
+.top-header-link {
+    color: #343a40; /* Dark gray color */
+    text-decoration: none;
+}
+
+.top-header-link:hover {
+    color: #ffc107; /* Gold on hover */
+}
