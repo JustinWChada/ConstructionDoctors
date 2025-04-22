@@ -1,0 +1,63 @@
+<style>
+.header-3d {
+    font-size: 3em; /* Adjust size as needed */
+    font-weight: bold;
+    color: #333; /* Base color */
+    text-shadow: 2px 2px 0px #aaa, /* First shadow for depth */
+                 4px 4px 0px #bbb, /* Second shadow for more depth */
+                 6px 6px 0px #ccc, /* Third shadow for even more depth*/
+                 8px 8px 0px #ddd;/* fourth shadow for even more depth*/
+  }
+  
+  /* Optional: Add a subtle glow for a more refined look */
+  
+  .header-3d.glow {
+    text-shadow: 2px 2px 0px #aaa,
+                 4px 4px 0px #bbb,
+                 6px 6px 0px #ccc,
+                 8px 8px 0px #ddd,
+                 0 0 10px rgba(0, 0, 0, 0.3); /* Glow effect */
+  }
+  
+  /* Example of a different color scheme */
+  .header-3d.blue{
+    color: #007bff;
+    text-shadow: 2px 2px 0px #66aaff,
+                 4px 4px 0px #88ccee,
+                 6px 6px 0px #aaddff,
+                 8px 8px 0px #cceeff;
+  }
+  
+  /* Example with a white text and dark shadow */
+  .header-3d.white{
+      color: white;
+      text-shadow: 2px 2px 0px #111,
+                  4px 4px 0px #222,
+                  6px 6px 0px #333,
+                  8px 8px 0px #444;
+  }
+  
+  /* Example of a more extreme shadow effect */
+  .header-3d.extreme{
+    color: #333;
+    text-shadow: 4px 4px 0px #aaa,
+                 8px 8px 0px #bbb,
+                 12px 12px 0px #ccc,
+                 16px 16px 0px #ddd;
+  }
+  
+  /* Example with less shadow, for a subtle effect*/
+  .header-3d.subtle{
+    color: #333;
+    text-shadow: 1px 1px 0px #aaa,
+                 2px 2px 0px #bbb,
+                 3px 3px 0px #ccc,
+                 4px 4px 0px #ddd;
+  }
+  </style>
+  <h1 class="header-3d">Your 3D Header</h1>
+  <h2 class="header-3d glow">Glow Header</h2>
+  <h3 class="header-3d blue">Blue 3D Header</h3>
+  <h4 class="header-3d white">White 3D Header</h4>
+  <h5 class="header-3d extreme">Extreme 3D Header</h5>
+  <h6 class="header-3d subtle">Subtle 3D Header</h6>

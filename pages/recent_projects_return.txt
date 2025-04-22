@@ -1,0 +1,201 @@
+<?php
+// dashboard.php
+
+// Database configuration
+$host = 'localhost'; // Change if necessary
+$dbname = 'your_database_name'; // Change to your database name
+$username = 'your_username'; // Change to your database username
+$password = 'your_password'; // Change to your database password
+
+try {
+    // Create a new PDO instance
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Fetch all projects
+    $stmt = $pdo->query("SELECT * FROM projects");
+    $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h2>Project Dashboard</h2>
+<div class="project-container">
+    <?php foreach ($projects as $project): ?>
+        <div class="project-card" data-id="<?php echo $project['id']; ?>">
+            <img src="<?php echo htmlspecialchars($project['image']); ?>" alt="<?php echo htmlspecialchars($project['project_title']); ?>" class="project-image">
+            <h3 class="project-title"><?php echo htmlspecialchars($project['project_title']); ?></h3>
+            <p class="project-description" style="display:none;"><?php echo htmlspecialchars($project['description']); ?></p>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<!-- Update Project Modal -->
+<div id="updateModal" style="display:none;">
+    <form id="updateForm">
+        <input type="hidden" id="update_id" name="update_id">
+        <label for="update_project_title">Project Title:</label><br>
+        <input type="text" id="update_project_title" name="update_project_title" required><br><br>
+
+        <label for="update_description">Description:</label><br>
+        <textarea id="update_description" name="update_description" required></textarea><br><br>
+
+        <label for="update_image">Image URL:</label><br>
+        <input type="text" id="update_image" name="update_image" required><br><br>
+
+        <button type="submit">Update Project</button>
+        <button type="button" id="closeModal">Close</button>
+    </form>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('.project-card').on('click', function() {
+        const projectId = $(this).data('id');
+        const projectTitle = $(this).find('.project-title').text();
+        const projectDescription = $(this).find('.project-description').text();
+        const projectImage = $(this).find('img').attr('src');
+
+        $('#update_id').val(projectId);
+        $('#update_project_title').val(projectTitle);
+        $('#update_description').val(projectDescription);
+        $('#update_image').val(projectImage);
+
+        $('#updateModal').show();
+    });
+
+    $('#closeModal').on('click', function() {
+        $('#updateModal').hide();
+    });
+
+    $('#updateForm').on('submit', function(e) {
+        e.preventDefault(); // Prevent normal form submission
+
+        $.ajax({
+            url: 'update_project.php',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                alert(response);
+                location.reload(); // Reload the page to see updated data
+            },
+            error: function() {
+                alert('An error occurred while updating the project.');
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+<style>
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.project-image {
+    width: 180px;
+    height: 140px;
+}
+
+.project-title {
+    font-size: 16px;
+}
+
+#updateModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+}
+
+#closeModal {
+    margin-top: 10px;
+}
+
+</style>
+
+
+<update>
+<?php
+// update_project.php
+
+// Database configuration
+$host = 'localhost'; // Change if necessary
+$dbname = 'your_database_name'; // Change to your database name
+$username = 'your_username'; // Change to your database username
+$password = 'your_password'; // Change to your database password
+
+try {
+    // Create a new PDO instance
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Check if data is received via POST
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id = $_POST['update_id'];
+        $project_title = $_POST['update_project_title'];
+        $description = $_POST['update_description'];
+        $image = $_POST['update_image'];
+
+        // Prepare and execute the update statement
+        $stmt = $pdo->prepare("UPDATE projects SET project_title = :project_title, description = :description, image = :image WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':project_title', $project_title);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':image', $image);
+
+        if ($stmt->execute()) {
+            echo "Project updated successfully!";
+        } else {
+            echo "Failed to update project.";
+        }
+    }
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+
+</update>

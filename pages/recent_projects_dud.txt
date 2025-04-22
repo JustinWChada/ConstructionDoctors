@@ -1,0 +1,96 @@
+/*this is mixed code for the recent projects*/
+CREATE TABLE projects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    project_title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    image VARCHAR(255) NOT NULL
+);
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Project</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h2>Add New Project</h2>
+<form id="projectForm">
+    <label for="project_title">Project Title:</label><br>
+    <input type="text" id="project_title" name="project_title" required><br><br>
+    
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" required></textarea><br><br>
+    
+    <label for="image">Image URL:</label><br>
+    <input type="text" id="image" name="image" required><br><br>
+
+    <button type="submit">Save Project</button>
+</form>
+
+<div id="response"></div>
+
+<script>
+$(document).ready(function() {
+    $('#projectForm').on('submit', function(e) {
+        e.preventDefault(); // Prevent the form from submitting normally
+
+        $.ajax({
+            url: 'save_project.php',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                $('#response').html(response); // Display response from PHP
+                $('#projectForm')[0].reset(); // Reset the form
+            },
+            error: function() {
+                $('#response').html('<p>An error occurred while saving the project.</p>');
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>
+
+
+<?php
+// save_project.php
+
+// Database configuration
+$host = 'localhost'; // Change if necessary
+$dbname = 'your_database_name'; // Change to your database name
+$username = 'your_username'; // Change to your database username
+$password = 'your_password'; // Change to your database password
+
+try {
+    // Create a new PDO instance
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Check if data is received via POST
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $project_title = $_POST['project_title'];
+        $description = $_POST['description'];
+        $image = $_POST['image'];
+
+        // Prepare and execute the insert statement
+        $stmt = $pdo->prepare("INSERT INTO projects (project_title, description, image) VALUES (:project_title, :description, :image)");
+        $stmt->bindParam(':project_title', $project_title);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':image', $image);
+
+        if ($stmt->execute()) {
+            echo "Project saved successfully!";
+        } else {
+            echo "Failed to save project.";
+        }
+    }
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>

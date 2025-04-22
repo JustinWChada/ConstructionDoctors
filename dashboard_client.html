@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Welcome, User!</h1>
+        <div class="messages">
+            <h2>Messages</h2>
+            <!-- Display messages here -->
+        </div>
+        <div class="enquiries">
+            <h2>Send Enquiry</h2>
+            <form action="send_enquiry.php" method="post">
+                <textarea name="enquiry" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <div class="testimonials">
+            <h2>Submit Testimonial</h2>
+            <form action="send_testimonial.php" method="post">
+                <textarea name="testimonial" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
